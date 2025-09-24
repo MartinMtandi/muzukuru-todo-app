@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useTodo } from '../contexts/TodoContext';
 import TodoItem from './TodoItem';
+import { TodoListSkeleton } from './TodoSkeleton';
 
 const ListContainer = styled.div`
   margin-bottom: 1.5rem;
@@ -31,6 +32,14 @@ const EmptySubtext = styled.p`
 
 const TodoList: React.FC = () => {
   const { filteredTodos, state } = useTodo();
+
+  if (state.loading) {
+    return (
+      <ListContainer>
+        <TodoListSkeleton />
+      </ListContainer>
+    );
+  }
 
   if (filteredTodos.length === 0) {
     const getEmptyMessage = () => {

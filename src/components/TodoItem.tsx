@@ -131,16 +131,16 @@ interface TodoItemProps {
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
-  const { dispatch } = useTodo();
+  const { updateTodo, deleteTodo } = useTodo();
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(todo.text);
 
-  const handleToggle = () => {
-    dispatch({ type: 'TOGGLE_TODO', payload: todo.id });
+  const handleToggle = async () => {
+    await updateTodo(todo.id, { completed: !todo.completed });
   };
 
-  const handleDelete = () => {
-    dispatch({ type: 'DELETE_TODO', payload: todo.id });
+  const handleDelete = async () => {
+    await deleteTodo(todo.id);
   };
 
   const handleEdit = () => {
@@ -148,9 +148,9 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
     setEditText(todo.text);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (editText.trim() && editText.trim() !== todo.text) {
-      dispatch({ type: 'EDIT_TODO', payload: { id: todo.id, text: editText.trim() } });
+      await updateTodo(todo.id, { text: editText.trim() });
     }
     setIsEditing(false);
   };

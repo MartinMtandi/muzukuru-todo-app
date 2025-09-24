@@ -52,14 +52,14 @@ const ClearButton = styled.button`
 `;
 
 const TodoStats: React.FC = () => {
-  const { state, dispatch } = useTodo();
-  
+  const { state, clearCompleted } = useTodo();
+
   const totalTodos = state.todos.length;
   const completedTodos = state.todos.filter(todo => todo.completed).length;
   const activeTodos = totalTodos - completedTodos;
 
-  const handleClearCompleted = () => {
-    dispatch({ type: 'CLEAR_COMPLETED' });
+  const handleClearCompleted = async () => {
+    await clearCompleted();
   };
 
   if (totalTodos === 0) {

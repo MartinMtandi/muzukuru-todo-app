@@ -40,10 +40,10 @@ const filters: { key: FilterType; label: string }[] = [
 ];
 
 const TodoFilters: React.FC = () => {
-  const { state, dispatch } = useTodo();
+  const { state, setFilter } = useTodo();
 
   const handleFilterChange = (filter: FilterType) => {
-    dispatch({ type: 'SET_FILTER', payload: filter });
+    setFilter(filter);
   };
 
   return (

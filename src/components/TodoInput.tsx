@@ -65,12 +65,12 @@ const AddButton = styled.button`
 
 const TodoInput: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
-  const { dispatch } = useTodo();
+  const { addTodo, state } = useTodo();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (inputValue.trim()) {
-      dispatch({ type: 'ADD_TODO', payload: inputValue.trim() });
+      await addTodo(inputValue.trim());
       setInputValue('');
     }
   };
@@ -88,7 +88,7 @@ const TodoInput: React.FC = () => {
           />
           <AddButton 
             type="submit" 
-            disabled={!inputValue.trim()}
+            disabled={!inputValue.trim() || state.loading}
             title="Add todo"
           >
             <Plus size={20} />
