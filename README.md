@@ -2,6 +2,10 @@
 
 A modern, full-featured **todo / task-tracking** web application built with React, TypeScript, Tailwind CSS and Vite.
 
+## 🌐 Live Demo
+
+[https://martinmtandi.github.io/muzukuru-todo-app](https://martinmtandi.github.io/muzukuru-todo-app)
+
 ---
 
 ## 🧰 Tech Stack
@@ -83,3 +87,11 @@ Key points:
 - 📊 Analytics & performance budgets
 
 Contributions are welcome – feel free to open issues or PRs! 🚀
+
+---
+
+## 👤 Author
+
+**Martin Mtandi**  
+WhatsApp: +27 78 385 9589  
+Phone: +263 715 518 166
