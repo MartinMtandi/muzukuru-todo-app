@@ -1,6 +1,5 @@
 {
   "name": "muzukuru-todo-app",
-  "author": "Martin Mtandi <martinmtandi@gmail.com>",
   "homepage": "https://martinmtandi.github.io/muzukuru-todo-app",
   "description": "A modern, full-featured todo / task-tracking web application",
   "private": true,
